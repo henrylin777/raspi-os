@@ -57,6 +57,37 @@ Goal of this lab
 * Implement asynchronous UART read/write operation
 * Implement multiplexing CPU timer 
 
+
+### Lab3-Interrupt
+
+Goal of this lab
+* Understand the Exception mechanism in Armv8-A
+* Set up exception vector table and excpetion handler
+* Implement asynchronous UART read/write operation
+* Implement multiplexing CPU timer 
+
+### Lab4-Memory Allocator
+
+Goal of this lab
+* Implement buddy system
+* Implement slub allocator 
+
+
+### Lab5-Process management (in progress)
+
+Goal of this lab
+* Understand thread management mechanism
+* Understand what is kerenl preemption
+* Implement context switch and scheduler
+* Implement POSIX signals 
+
+### Lab6-Virtual Memory (in progress)
+
+Goal of this lab
+* Understand ARMv8-A virtual memory system architecture
+* Understand how kernel manages memory for user processes
+* Understand how demand paging works
+
 <br>
 
 ## Reference
