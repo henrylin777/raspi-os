@@ -43,18 +43,17 @@ void uart_send_char(char c) {
     /* wait until we can send */
     do {asm volatile("nop");} while (!(*AUX_MU_LSR & 0x20));
     /* write the character to the buffer */
-    *AUX_MU_IO = c;
+    *AUX_MU_IO = (unsigned int) c;
 }
 
 
 char uart_read_char() {
-    char r;
     /* wait until something is in the buffer */
     do {asm volatile("nop");} while (!(*AUX_MU_LSR & 0x01));
     /* read it and return */
-    r = (char) (*AUX_MU_IO);
+    char c = (char) (*AUX_MU_IO);
     /* convert carriage return to newline */
-    return (r == '\r') ? '\n' : r;
+    return (c == '\r') ? '\n' : c;
 }
 
 
@@ -64,5 +63,22 @@ void uart_send_string(char *s) {
         if(*s == '\n')
             uart_send_char('\r');
         uart_send_char(*s++);
+    }
+}
+
+/* Send binary data in hexadecimal format */
+void uart_binary_to_hex(unsigned int d) {
+    unsigned int n;
+    int c;
+    uart_send_string("0x");
+    for(c = 28; c >= 0; c -= 4) {
+        /* get highset 4 bits */
+        n = (d >> c)& 0xF; 
+        /* 
+         * 0x37: 0011 0111
+         * 0x30: 0011 0000 
+         */
+        n += n > 9 ? 0x37 : 0x30; 
+        uart_send_char(n);
     }
 }
