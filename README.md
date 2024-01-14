@@ -1,7 +1,12 @@
-# Operation System Capstone(OSC)
+# raspi-os
 
-This project is a series of implemenetations related to operate system, and  cover some common mechanisms such as booting, interrupt, file system,...etc. 
-The name "OSC" and the overall architecture of this project come from the lecture with the same name at National Yang Ming Chiao Tung University, please reference this [website](https://oscapstone.github.io/index.html) for more information.
+This project contains a series of implemenetations related to essential kernel modules in operating system such as scheduler, interrupt handling, and file system...etc. 
+The goal of this project is to understand the basic concept of Linux kernel by implementing kernel modules from scratch, so the source code is largely based on
+Linux kernel. 
+
+Each lab is about to build one kernel feature, it has a corresponding folder in materials directory. 
+
+This project is still under development, for now it is functionality-limited and only supports on Raspberry Pi 3.   
 
 <br>
 
@@ -13,7 +18,8 @@ Before getting started, you need to prepare the following things:
 * Micro SD card
 * Card reader
 
-You also need to build cross-platform development if you develop on non-ARM64 enviroment. For Ubuntu or Unix-like user, you can install cross compiler with `apt`
+You also need to build cross-platform development if you develop on non-Arm64 enviroment. 
+For Ubuntu or Unix-like user, you can install cross compiler with `apt`
 
 ```shell
 $ sudo apt install qemu-system
@@ -33,63 +39,10 @@ $ sudo apt install gdb
 
 <br>
 
-## Lab overview
+## Current features
 
-### Lab1-Uart
-
-Goal of this lab
-* Practice bare metal programming 
-* Learn how to access Rpi3's peripherals without OS support
-* Setup communication interface between Rpi3 and host computer with mini UART
-
-### Lab2-Booting
-
-Goal of this lab
-* Build a OS bootloader with mini UART
-* Understand the concept of initial ramdisk and how to parse raw cpio archives
-* Understand what is devicetree and how to parse raw dtb
-
-### Lab3-Interrupt
-
-Goal of this lab
-* Understand the Exception mechanism in Armv8-A
-* Set up exception vector table and excpetion handler
-* Implement asynchronous UART read/write operation
-* Implement multiplexing CPU timer 
-
-
-### Lab3-Interrupt
-
-Goal of this lab
-* Understand the Exception mechanism in Armv8-A
-* Set up exception vector table and excpetion handler
-* Implement asynchronous UART read/write operation
-* Implement multiplexing CPU timer 
-
-### Lab4-Memory Allocator
-
-Goal of this lab
-* Implement buddy system
-* Implement slub allocator 
-
-
-### Lab5-Process management (in progress)
-
-Goal of this lab
-* Understand thread management mechanism
-* Understand what is kerenl preemption
-* Implement context switch and scheduler
-* Implement POSIX signals 
-
-### Lab6-Virtual Memory (in progress)
-
-Goal of this lab
-* Understand ARMv8-A virtual memory system architecture
-* Understand how kernel manages memory for user processes
-* Understand how demand paging works
-
-<br>
-
-## Reference
-* [Raspberry Pi](https://github.com/raspberrypi)
-* [Operation System Capstone, National Yang Ming Chiao Tung University](https://oscapstone.github.io/index.html) 
+* UART communication
+* Interrupt handling
+* Memory allocator
+* Process scheduler and context switch
+* Virtual file system
