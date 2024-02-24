@@ -25,12 +25,6 @@ For Ubuntu or Unix-like user, you can install cross compiler with `apt`
 $ sudo apt install qemu-system
 ```
 
-In cross-platform development, it would be easier to test your code on an emulator before deploying on Raspberry pi 3+. For Ubuntu or Unix-like user, you can use the following command to install QEMU
-
-```shell
-$ sudo apt install qemu-system
-```
-
 Maybe you need to install gdb for debugging usage.
 
 ```shell
